@@ -1,0 +1,360 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Fira+Sans:wght@700&display=swap');
+@font-face {
+    font-family: 'HelveticaNeueCyr';
+    src: url('../fonts/HelveticaNeueCyr-Medium.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+$dark: #282828;
+$light-gray: #6F6F6F;
+$bg-brown: rgba(239, 127, 26, 0.2);
+$main-white: #FFFFFF;
+$blue: #0077A0;
+$active: #EF7F1A;
+
+body {
+    font-family: 'Fira Sans', sans-serif;
+
+    margin: 0;
+    padding: 0;
+}
+
+.header {
+    width: calc(100% - 127px);
+    height: 141px;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 0 67px 0 60px;
+
+    @media ( max-width: 1599px ) {
+        width: calc(100% - 47px);
+        padding: 0 27px 0 20px;
+    }
+
+    @media ( max-width: 639px ) {
+        height: 89px;
+
+        width: calc(100% - 25px);
+        padding: 0 15px 0 10px;
+    }
+
+    &__logo-svg {
+        height: 31px;
+        width: 127px;
+    }
+
+    &__buttons-block {
+        display: flex;;
+        width: 253px;
+        height: 42px;
+
+        @media ( max-width: 639px ) {
+            display: none;
+        }
+    }
+
+    &__person-svg {
+        display: none;
+
+        @media ( max-width: 639px ) {
+            display: flex;
+            width: 22px;
+            height: 22px;
+        }
+    }
+
+    &__signup {
+        position: relative;
+
+        margin-left: 21px;
+
+        width: 116px;
+        height: 42px;
+
+        :hover + .header__btn-bg {
+            top: 0;
+            left: 0;
+
+            background: $active;
+
+            -webkit-transition: top 1s, left 1s, background 0.5s, -webkit-transform 1s;
+            transition: top 1s, left 1s, background 0.5s, transform 1s;
+        }
+    }
+
+    &__btn {
+        width: 116px;
+        height: 42px;
+
+        font-family: 'Fira Sans';
+        font-weight: 500;
+        font-size: 18px;
+        line-height: 22px;
+
+        border: none;
+        background: none;
+
+        color: $dark;
+
+        &--active {
+            position: absolute;
+            top: 0;
+            left: 0;
+
+            border: 1px solid $dark;
+            color: $main-white;
+
+            z-index: 2;
+        }
+    }
+
+    &__btn-bg {
+        position: absolute;
+        top: 7px;
+        left: 7px;
+
+        width: 115px;
+        height: 41px;
+
+        background: $blue;
+
+        z-index: 1;
+    }
+}
+
+.main {
+    position: relative;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    padding-top: 39px;
+
+    @media ( max-width: 639px ) {
+        padding-top: 21px;
+    }
+
+    &__bg-circle {
+        position: absolute;
+        top: 39px;
+
+        width: 690px;
+        height: 690px;
+
+        border-radius: 50%;
+        box-shadow: 0px -80px 100px $bg-brown;
+        background: $main-white;
+
+        z-index: 1;
+
+        @media ( max-width: 999px ) {
+            top: 49px;
+
+            width: 498px;
+            height: 498px;
+        }
+
+        @media ( max-width: 639px ) {
+            top: 21px;
+
+            width: 300px;
+            height: 300px;
+        }
+    }
+
+    &__caption {
+        margin-top: 207px;
+        margin-bottom: 0;
+        z-index: 2;
+
+        font-family: 'HelveticaNeueCyr';
+        font-weight: 700;
+        font-size: 80px;
+        line-height: 80px;
+        letter-spacing: 0.25em;
+
+        color: $dark;
+
+        @media ( max-width: 999px ) {
+            margin-top: 129px;
+
+            font-size: 60px;
+            line-height: 60px;
+        }
+
+        @media ( max-width: 639px ) {
+            margin-top: 25px;
+
+            font-size: 50px;
+            line-height: 120%;
+
+            text-align: center;
+        }
+    }
+
+    &__subtitle {
+        margin-top: 58px;
+        margin-bottom: 0;
+        z-index: 2;
+
+        font-family: 'Fira Sans';
+        font-style: normal;
+        font-weight: 500;
+        font-size: 26px;
+        line-height: 31px;
+        letter-spacing: 0.11em;
+
+        color: $dark;
+
+        @media ( max-width: 999px ) {
+            margin-top: 40px;
+        }
+
+        @media ( max-width: 639px ) {
+            margin-top: 35px;
+
+            font-size: 19px;
+            line-height: 23px;
+        }
+    }
+
+    &__input {
+        display: flex;
+        flex-direction: row;
+        z-index: 2;
+
+        margin-top: 26px;
+        width: 407px;
+
+        @media ( max-width: 639px ) {
+            margin-top: 35px;
+            width: 296px;
+        }
+    }
+
+    &__input-field {
+        width: 241px;
+        height: 17px;
+
+        font-family: 'Fira Sans';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 19px;
+        letter-spacing: 0.05em;
+
+        padding: 13px 12px;
+        border: 1px solid $dark;
+
+        color: $dark;
+
+        ::placeholder {
+            color: $light-gray;
+        }
+
+        @media ( max-width: 639px ) {
+            width: 142px;
+            font-size: 12px;
+            line-height: 14px;
+        }
+    }
+
+    &__input-btn-block {
+        position: relative;
+
+        :hover + .main__btn-bg {
+            top: 0;
+            left: 0;
+
+            background: $active;
+
+            -webkit-transition: top 1s, left 1s, background 0.5s, -webkit-transform 1s;
+            transition: top 1s, left 1s, background 0.5s, transform 1s;
+        }
+    }
+
+    &__input-btn {
+        position: absolute;
+        top: 0;
+        left: 0;
+
+        width: 140px;
+        height: 45px;
+
+        font-family: 'Fira Sans';
+        font-weight: 500;
+        font-size: 16px;
+        line-height: 19px;
+        letter-spacing: 0.05em;
+
+        background: none;
+        border: 1px solid $dark;
+        border-left: none;
+        color: $main-white;
+
+        z-index: 2;
+
+        @media ( max-width: 639px ) {
+            width: 128px;
+        }
+    }
+
+    &__btn-bg {
+        position: absolute;
+        top: 7px;
+        left: 7px;
+
+        width: 139px;
+        height: 44px;
+
+        background: $blue;
+
+        z-index: 1;
+
+        @media ( max-width: 639px ) {
+            top: 5px;
+            left: 5px;
+
+            width: 128px;
+        }
+    }
+}
+
+.footer {
+    position: relative;
+    margin-top: 196px;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+
+    padding: 0 63px 54px 63px;
+    z-index: 2;
+
+    @media ( max-width: 1599px ) {
+        padding: 0 23px 54px 23px;
+    }
+
+    @media ( max-width: 639px ) {
+        justify-content: center;
+        margin-top: 57px;
+    }
+
+    &__svg {
+        width: 28px;
+        height: 22px;
+
+        margin-left: 32px;
+
+        &--first {
+            margin-left: 0;
+        }
+    }
+}
